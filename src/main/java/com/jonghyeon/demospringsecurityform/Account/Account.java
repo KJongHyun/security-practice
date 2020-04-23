@@ -55,4 +55,14 @@ public class Account {
     public void encodePassword(PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(this.password);
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "Id=" + Id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

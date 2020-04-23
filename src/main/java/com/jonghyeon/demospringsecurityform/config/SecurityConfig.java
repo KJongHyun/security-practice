@@ -14,11 +14,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/", "/info", "/account/**").permitAll()
-                .mvcMatchers("/admin").hasRole("ADMIN")
+                .mvcMatchers("/admin").hasRole("premium")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .and()
             .httpBasic();
+
+        // http를 연속으로 참조해서 설정가능
+        /*
+        http.~~
+
+        .
+        .
+        .
+
+        http.~~
+         */
     }
 }

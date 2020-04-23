@@ -15,5 +15,4 @@ public class AccountController {
     public Account createAccount(@ModelAttribute Account account) {
         return accountService.createNew(account);
     }
-
 }
