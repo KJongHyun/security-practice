@@ -9,7 +9,6 @@ public class SampleService {
     public void dashboard() {
         Account account = AccountContext.getAccount();
         System.out.println("==============");
-        System.out.println(account.getUsername());
+        System.out.println(account);
     }
-
 }

@@ -3,6 +3,9 @@ package com.jonghyeon.demospringsecurityform.form;
 import com.jonghyeon.demospringsecurityform.Account.AccountContext;
 import com.jonghyeon.demospringsecurityform.Account.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +51,10 @@ public class SampleController {
     @GetMapping("/admin")
     public String admin(Model model, Principal principal) {
         model.addAttribute("message", "Hello Admin, " + principal.getName());
-
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println("Expected getPassword is empty : " + userDetails.getPassword());
+        System.out.println("Expected getUsername is empty : " + userDetails.getUsername());
+        System.out.println("Expected getAuthorities is empty : " + userDetails.getAuthorities().toString());
         return "admin";
     }
 

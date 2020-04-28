@@ -50,5 +50,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/");
+
+        // http를 연속으로 참조해서 설정가능
+        /*
+        http.~~
+
+        .
+        .
+        .
+
+        http.~~
+         */
     }
 }
